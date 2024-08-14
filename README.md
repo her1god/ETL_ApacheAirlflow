@@ -1,5 +1,3 @@
-Berikut adalah template README yang sudah diperbarui dengan deskripsi dalam bahasa Indonesia dan menggunakan gambar di atas:
-
 ---
 
 # Proyek ETL dengan Apache Airflow
