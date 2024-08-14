@@ -27,7 +27,7 @@ Ini adalah proyek ETL (Extract, Transform, Load) yang menggunakan Apache Airflow
 
 1. **Unduh dataset**: Tambahkan bagian di README yang menjelaskan cara mengunduh dataset. Anda dapat menyertakan link ke Google Drive atau tempat penyimpanan lainnya, serta memberikan instruksi tentang cara mengunduh dan menempatkan dataset di dalam proyek.
 
-    ```bash
+    ```markdown
     ## Unduh Dataset
 
     Anda dapat mengunduh dataset untuk proyek ini dari tautan berikut:
@@ -45,7 +45,7 @@ Ini adalah proyek ETL (Extract, Transform, Load) yang menggunakan Apache Airflow
 
 3. **Membuat file .env**: Berikan instruksi kepada pengguna tentang bagaimana cara membuat file `.env` dan mengisi variabel lingkungan yang diperlukan untuk koneksi ke database PostgreSQL. Anda juga dapat memberikan contoh isi file `.env`.
 
-    ```bash
+    ```markdown
     ## Konfigurasi .env
 
     Untuk menjalankan proyek ini, Anda perlu membuat file `.env` di dalam folder `env` dan mengisi variabel lingkungan berikut:
@@ -68,7 +68,7 @@ Ini adalah proyek ETL (Extract, Transform, Load) yang menggunakan Apache Airflow
 
 4. **Buat dan Aktifkan Lingkungan Virtual:**
 
-    ```bash
+    ```markdown
     python3 -m venv venv
     source venv/bin/activate
     export AIRFLOW_HOME=~/nama_folder
@@ -85,7 +85,7 @@ Ini adalah proyek ETL (Extract, Transform, Load) yang menggunakan Apache Airflow
 
     Pastikan Apache Airflow telah terinstal dan dikonfigurasi di sistem Anda. Kemudian, jalankan:
 
-    ```bash
+    ```markdown
     buka airflow.cfg, cari sql_alchemy_conn lalu isi dengan postgresql+psycopg2://username:password@localhost/database
     dan juga cari executor lalu ubah menjadi executor = LocalExecutor.
     airflow users create --username admin --firstname FIRSTNAME --lastname LASTNAME --role Admin --email admin@example.com --password admin
