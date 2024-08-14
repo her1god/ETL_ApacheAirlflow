@@ -1,0 +1,45 @@
+*Transform Book Details*
+Fungsi convert_date: Konversi string tanggal ke format datetime. Jika gagal, mengembalikan nilai NaT (Not a Time).
+Membersihkan publication_info: Menghapus teks tidak diinginkan dari kolom dan mengubahnya menjadi format datetime.
+Membersihkan format: Ekstraksi dan membersihkan format buku.
+Membersihkan num_pages: Menghapus karakter yang tidak diinginkan, mengganti nilai 'None' atau kosong dengan 0, dan mengubah tipe data menjadi integer.
+Mengisi book_details yang kosong: Mengisi nilai kosong dengan teks "Tidak Ada Ringkasan Tersedia".
+
+*Transform Book Reviews*
+Mengubah book_id menjadi integer: Konversi kolom book_id menjadi tipe data integer.
+Membersihkan likes_on_review dan reviewer_total_reviews: Menghapus kata 'likes' dan 'reviews'.
+Membersihkan reviewer_followers: Menghapus kata 'followers' atau 'follower' dan menghapus baris yang berisi 'Author'.
+Fungsi remove_k_and_convert_to_int: Menghapus karakter non-digit dan mengonversi string menjadi angka desimal.
+Memproses kolom likes_on_review, reviewer_total_reviews, dan reviewer_followers: Mengaplikasikan fungsi pembersihan dan konversi ke integer.
+Mengubah review_date menjadi format datetime: Konversi string tanggal ke format datetime.
+Mengisi review_rating yang kosong dan membersihkan nilainya: Mengisi nilai kosong dengan 'Rating 0 out of 5' dan mengekstrak angka rating dari string.
+
+*Transform Book*
+Mengubah nama kolom id menjadi book_id: Merename kolom id menjadi book_id agar konsisten dengan DataFrame lainnya.
+
+
+*Lalu Pada Transform Dag Nya*
+1. Blok Try-Except
+Tujuan: Menangkap dan menangani kesalahan selama proses ETL agar dapat memberikan pesan kesalahan yang informatif.
+2. Ekstraksi Data 
+Tujuan: Memanggil fungsi extract_book_details, extract_book_reviews, dan extract_books untuk mengunduh data buku, ulasan buku, dan detail buku dari sumbernya.
+3. Transformasi Data
+Tujuan: Menggunakan fungsi transform_book_details, transform_book_reviews, dan transform_books untuk membersihkan dan mentransformasi data yang telah diekstrak.
+4. Menggabungkan DataFrame Berdasarkan Kolom 'book_id'
+Tujuan: Menggabungkan DataFrame yang telah ditransformasi berdasarkan kolom book_id untuk menghasilkan satu DataFrame yang lengkap.
+5. Mengonversi Tipe Data Kembali ke Integer
+Tujuan: Mengonversi kolom tertentu yang mungkin memiliki nilai NaN ke tipe data integer dengan mengisi NaN menjadi 0 terlebih dahulu.
+6. Menghapus Kolom 'Unnamed: 0' Jika Ada
+Tujuan: Menghapus kolom tambahan 'Unnamed: 0' yang mungkin muncul karena kesalahan dalam proses pembacaan atau penulisan CSV.
+7. Membuat DataFrame Bersih
+Tujuan: Membuat DataFrame yang bersih dan terpisah untuk berbagai kebutuhan analisis atau penyimpanan.
+8. Membuat Direktori untuk Data Bersih
+Tujuan: Membuat direktori 'data_clean' jika belum ada untuk menyimpan data yang telah dibersihkan.
+9. Simpan Data ke File CSV
+Tujuan: Menyimpan DataFrame yang telah dibersihkan ke file CSV di direktori 'data_clean'.
+10. Simpan Data ke PostgreSQL
+Tujuan: Menyimpan DataFrame yang telah dibersihkan ke dalam tabel PostgreSQL.
+11. Pesan Sukses
+Tujuan: Menampilkan pesan sukses jika seluruh proses ETL berhasil dijalankan.
+12. Blok Except
+Tujuan: Menangkap dan mencetak pesan kesalahan jika terjadi kesalahan selama proses ETL.

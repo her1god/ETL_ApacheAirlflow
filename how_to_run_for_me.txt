@@ -1,0 +1,31 @@
+python3 -m venv nama_dir
+source nama_dir/bin/activate
+export AIRFLOW_HOME=~/nama_dir
+pip install apache-airflow
+pip install apache-airflow[cncf.kubernetes]
+pip install pandas python-dotenv
+pip install "sqlalchemy<2.0"
+atur cfg
+airflow db init
+postgresql+psycopg2://air:air@localhost/air
+airflow users create --username admin --firstname FIRSTNAME --lastname LASTNAME --role Admin --email admin@example.com --password admin
+airflow scheduler
+airflow webserver --port 8080
+
+
+airflow info ~ cek info airflow
+pip list | grep nama_pip ~ cek versi paket pip
+pip install pandas==2.1.4 ~ contoh install paket sesuai versi
+pip install 'SQLAlchemy<2.0' ~ contoh insatall dibawah versi 2.0
+pip install --upgrade pandas sqlalchemy psycopg2 ~ kalau mau upgrade
+echo $AIRFLOW_HOME  ~ kalau mau cek dimana lokasi path
+which pip ~ cek dimana pip
+source bin/activate ~ kalau mau aktif kan venv
+deactivate ~ kalau mau matiin
+
+
+update airflow > pip install --upgrade apache-airflow
+
+untuk buat file requirements > pip freeze > requirements.txt
+
+ganti di airflow.cfg dari Sequential jadi > executor = LocalExecutor
