@@ -4,7 +4,7 @@ Berikut adalah template README yang sudah diperbarui dengan deskripsi dalam baha
 
 # Proyek ETL dengan Apache Airflow
 
-![Gambar Proyek ETL](https://link-ke-gambar-anda.com/etljpg) <!-- Ganti URL dengan URL gambar Anda -->
+![Gambar Proyek ETL](https://github.com/her1god/ETL_ApacheAirlflow/blob/main/ETL%20Books%20Reviews%20in%20Website%20GoodReads.png) <!-- Ganti URL dengan URL gambar Anda -->
 
 ## Deskripsi
 
